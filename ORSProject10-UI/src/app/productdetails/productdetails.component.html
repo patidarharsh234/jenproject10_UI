@@ -1,0 +1,199 @@
+<app-navbar></app-navbar>
+<style>
+  .grad {
+    background-image: linear-gradient(to bottom right, rgb(32, 168, 168), rgb(219, 231, 237));
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-bottom: 25px;
+  }
+
+  .log1 {
+    padding-top: 13%;
+  }
+
+  .input-group-addon {
+    box-shadow: 9px 8px 7px #001a33;
+  }
+
+  .full-height {
+    height: 100vh;
+  }
+
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .btn {
+    margin-right: 8px;
+  }
+</style>
+
+<div class="row 
+            full-height 
+            centered" 
+         style="background: url('assets/files/3.jpg') no-repeat center center;
+          background-attachment: fixed;
+           background-size: cover;">
+
+
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body input-group-addon grad">
+        <form name="userForm">
+          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold text-center">{{'Add categoryDetails' | translate}}</h2>
+          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold text-center">{{'Update categoryDetails' | translate}}</h2>
+
+
+
+          <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message | translate}}
+          </div>
+
+          <div *ngIf="form.error && form.message != ''" class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message | translate}}
+          </div>
+
+
+
+
+          <div class="form-group">
+
+            <label><b>{{'category' | translate }}</b><span class="required-field"></span></label>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user grey-text"></i></div>
+              </div>
+
+              <select class="form-control" name="categoryId" [(ngModel)]="form.data.categoryId" aria-label="ngSelected">
+                <option [ngValue]="" value="undefined">{{'Select category' | translate}}</option>
+                <option *ngFor="let obj of form.preload.categoryList" [value]="obj.key">{{obj.value}}</option>
+              </select>
+
+            </div>
+
+            <span *ngIf="form.inputerror.categoryId != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.categoryId | translate}}</span>
+
+          </div>
+
+
+           <!--  Unique Filed=> (ngModelChange)="form.data.name = $event.trim()" 
+             string=>type="text" (ngModelChange)="form.data.name = $event.trim()" / appNoNumbers -->
+          <div class="form-group">
+            <label><b>{{'name' | translate }}</b><span class="required-field"></span></label>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
+              </div>
+
+              <input type="text" name="name" [(ngModel)]="form.data.name" class="form-control" 
+               (ngModelChange)="form.data.name = $event.trim()"   appNoNumbers  maxlength="500"  
+               placeholder="{{'name' | translate}}">
+
+            </div>
+            <span *ngIf="form.inputerror.name != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.name | translate}}</span>
+          </div>
+
+
+
+             <!-- <textarea type="text"  /id="descriptiontext" cols="20"    title="descriptions" rows="4" /
+                (ngModelChange)="form.data.description = $event.trim()-->
+          <div class="form-group">
+            <label><b>{{'description ' | translate }}</b><span class="required-field"></span></label>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
+              </div>
+              
+              <textarea type="text"  id="descriptiontext" cols="20"    title="description" rows="4" name="descriptiontext" 
+              [(ngModel)]="form.data.description" class="form-control"  (ngModelChange)="form.data.description = $event.trim()"
+                placeholder="{{'description' | translate}}"> </textarea>
+            </div>
+
+            <span *ngIf="form.inputerror.description != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.description | translate}}</span>
+         
+          </div>
+
+
+ 
+
+
+      
+
+
+<!-- LongFiled=>
+     type="number"  ,
+    appmaxlength  -->
+          <div class="form-group" class="descriptiontext">
+
+            <label><b>{{'price' | translate }}</b><span class="required-field"></span></label>
+
+            <div class="input-group">
+               <div class="input-group-prepend">
+                <div class="input-group-text"></div>
+              </div>
+
+         <input type="number" name="price" [(ngModel)]="form.data.price" class="form-control" 
+         placeholder="{{'price' | translate}}"  />
+             
+            </div>
+            <span *ngIf="form.inputerror.price != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.price | translate}}</span>
+          </div>
+          
+
+
+     
+
+
+<!-- date Filed=> type="date" -->
+          <div class="form-group">
+            <label><b>{{'date Of Purchase' | translate }}</b><span class="required-field"></span></label>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-table grey-text"></i></div>
+              </div>
+
+              <input type="date" [value]="form.data.dateOfPurchase |date:'yyyy-MM-dd'" 
+               (input)="form.data.dateOfPurchase=parseDate($event.target.value)"  class="form-control form-control-sm" required />
+            </div>
+
+            <span *ngIf="form.inputerror.dateOfPurchase != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.dateOfPurchase | translate}}</span>
+          </div>
+
+
+          <div class="row pt-2 pb-3">
+            <div class="col-md-3"></div>
+            <div class="col-md-3 pt-2">
+              <button *ngIf="!form.data.id>0" (click)="onUpload()" class="btn btn-success">{{'Save' | translate}}</button>
+              <button *ngIf="form.data.id>0" (click)="onUpload()" class="btn btn-success">{{'Update' | translate}}</button>
+            </div>
+            <div class="col-md-3 pt-2">
+              <a class="btn btn-warning" [routerLink]="['/categorydetailslist']" style="text-decoration: none; color: white;">
+                {{'categoryDetails List' | translate}}</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<app-footer></app-footer>
