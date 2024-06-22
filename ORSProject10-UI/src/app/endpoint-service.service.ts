@@ -25,6 +25,6 @@ export class EndpointServiceService {
   public ORDER = this.SERVER_URL+ "/Order";
   public ProductDetails = this.SERVER_URL+ "/productDetails";
   public client = this.SERVER_URL+ "/Client";
-  public WishList = this.SERVER_URL+ "/WishList";
+  public vehicle = this.SERVER_URL+ "/vehicle";
  
 }

@@ -117,13 +117,13 @@
                 <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
               </div>
 
-              <input type="text" name="name" [(ngModel)]="form.data.name" class="form-control" 
-               (ngModelChange)="form.data.name = $event.trim()"  appNoNumbers    maxlength="500"  
-               placeholder="{{'name' | translate}}">
+              <input type="text" name="names" [(ngModel)]="form.data.names" class="form-control" 
+               (ngModelChange)="form.data.names = $event.trim()"  appNoNumbers    maxlength="500"  
+               placeholder="{{'names' | translate}}">
 
             </div>
-            <span *ngIf="form.inputerror.name != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.name | translate}}</span>
+            <span *ngIf="form.inputerror.names != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.names | translate}}</span>
           </div>
 
 
@@ -164,6 +164,21 @@
               {{form.inputerror.phoneNo| translate}}</span>
           </div>
 
+          <!-- doubleValue filed -->
+          <div class="form-group">
+            <label><b>{{'doubleValue ' | translate }}</b><span class="required-field"></span></label>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
+              </div>
+
+              <input type="number" name="doubleValue" [(ngModel)]="form.data.doubleValue" class="form-control" 
+                    placeholder="{{'doubleValue  ' | translate}}">
+            </div>
+            <span *ngIf="form.inputerror.doubleValue != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.doubleValue| translate}}</span>
+          </div>
 
       
 

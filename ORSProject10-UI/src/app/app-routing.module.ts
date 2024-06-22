@@ -45,6 +45,8 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 import { ProductdetailslistComponent } from './productdetails/productdetailslist.component';
 import { ClientComponent } from './client/client.component';
 import { ClientlistComponent } from './client/clientlist.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehiclelistComponent } from './Vehicle/vehiclelist.component';
 
 
 const routes: Routes = [
@@ -303,18 +305,18 @@ const routes: Routes = [
     path: 'clientlist',
     component: ClientlistComponent
 },
-// {
-//     path: 'anyapi',
-//     component: WishlistComponent
-// },
-// {
-//     path: 'anyapi/:id',
-//     component: WishlistComponent
-// },
-// {
-//     path: 'anyapilist',
-//     component: WishlistlistComponent
-// },
+ {
+    path: 'vehicle',
+    component: VehicleComponent
+},
+{
+    path: 'vehicle/:id',
+    component: VehicleComponent
+},
+{
+    path: 'vehiclelist',
+    component: VehiclelistComponent
+},
 
  
 ];

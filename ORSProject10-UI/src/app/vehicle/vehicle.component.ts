@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseCtl } from '../base.component';
 import { ServiceLocatorService } from '../service-locator.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { BaseCtl } from '../base.component';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  selector: 'app-vehicle',
+  templateUrl: './vehicle.component.html',
+  styleUrls: ['./vehicle.component.css']
 })
-export class ClientComponent extends BaseCtl{
+export class VehicleComponent extends BaseCtl {
 
   constructor(public locator:ServiceLocatorService,public route:ActivatedRoute,public http:HttpClient) {
-    super(locator.endpoints.client,locator,route);
+    super(locator.endpoints.vehicle,locator,route);
    }
 
 
@@ -64,22 +64,17 @@ export class ClientComponent extends BaseCtl{
 
   populateForm(form, data) {
     form.id = data.id;
-    form.names=data.names; 
    
-     form.address=data.address; 
+    form.number=data.number; 
 
-     form.doubleValue=data.doubleValue; 
+     form.purchaseDate=data.purchaseDate; 
 
-     form.salary=data.salary;
+     form.insuranceAmount=data.insuranceAmount;
 
-     form.clientDate = data.clientDate;
+     form.colour = data.colour;
 
-     form.phoneNo=data.phoneNo;
+     form.colourId = data.colourId;
 
-     form.emailId=data.emailId;
-
-     form.priorityId = data.priorityId;
-     form.priority=data.priority;
      
     
   }
@@ -91,7 +86,6 @@ export class ClientComponent extends BaseCtl{
     }
     return null;
   }
-
 
 
 }

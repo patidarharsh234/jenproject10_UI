@@ -72,7 +72,7 @@ export class BaseCtl implements OnInit {
     /**
      * Get primary key from path variale
      */
-
+    this.form.data.id='';
     _self. serviceLocator.getPathVariable(_self.route, function (params) {
       _self.form.data.id = params["id"];
       console.log('I GOT ID', _self.form.data.id);

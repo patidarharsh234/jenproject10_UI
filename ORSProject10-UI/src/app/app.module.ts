@@ -65,6 +65,8 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 import { ProductdetailslistComponent } from './productdetails/productdetailslist.component';
 import { ClientComponent } from './client/client.component';
 import { ClientlistComponent } from './client/clientlist.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehiclelistComponent } from './Vehicle/vehiclelist.component';
 
 
 
@@ -126,6 +128,8 @@ export function myHttpLoader(http: HttpClient) {
     ProductdetailslistComponent,
     ClientComponent,
     ClientlistComponent,
+    VehicleComponent,
+    VehiclelistComponent,
  
 
     
