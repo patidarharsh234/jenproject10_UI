@@ -88,9 +88,10 @@
           </div>
 
 
+
            <!--  Unique Filed=> (ngModelChange)="form.data.number = $event.trim()" -->
           <div class="form-group">
-            <label><b>{{'number' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Number' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">
@@ -98,7 +99,7 @@
               </div>
 
               <input type="text" name="number" [(ngModel)]="form.data.number" class="form-control" 
-               (ngModelChange)="form.data.number = $event.trim()"     maxlength="500"  
+               (ngModelChange)="form.data.number = $event.trim()"     maxlength="50"  
                placeholder="{{'number' | translate}}">
 
             </div>
@@ -111,7 +112,7 @@
 
           <!-- insuranceAmount filed -->
           <div class="form-group">
-            <label><b>{{'insuranceAmount ' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Insurance Amount ' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">
@@ -119,7 +120,8 @@
               </div>
 
               <input type="number" name="insuranceAmount" [(ngModel)]="form.data.insuranceAmount" class="form-control" 
-                    placeholder="{{'insuranceAmount  ' | translate}}">
+                 appMaxLengthNumber="50" 
+                   placeholder="{{'insuranceAmount  ' | translate}}">
             </div>
             <span *ngIf="form.inputerror.insuranceAmount != null" class="alertRedColor" style="color: red;">
               {{form.inputerror.insuranceAmount| translate}}</span>
@@ -136,7 +138,7 @@
 
 <!-- date Filed=> type="date" -->
           <div class="form-group">
-            <label><b>{{'purchaseDate' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Purchase Date' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">

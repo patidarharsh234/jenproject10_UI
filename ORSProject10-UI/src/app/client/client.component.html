@@ -48,8 +48,8 @@
     <div class="card">
       <div class="card-body input-group-addon grad">
         <form name="userForm">
-          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold text-center">{{'Add client' | translate}}</h2>
-          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold text-center">{{'Update client' | translate}}</h2>
+          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold text-center">{{'Add Client' | translate}}</h2>
+          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold text-center">{{'Update Client' | translate}}</h2>
 
 
 
@@ -64,11 +64,11 @@
           </div>
 
 
-
+<!-- start attribute filed Role se -->
 
           <div class="form-group">
 
-            <label><b>{{'priority' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Priority' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">
@@ -88,42 +88,26 @@
           </div>
 
 
-           <!--  Unique Filed=> (ngModelChange)="form.data.emailId = $event.trim()" -->
-          <div class="form-group">
-            <label><b>{{'emailId' | translate }}</b><span class="required-field"></span></label>
 
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
-              </div>
-
-              <input type="text" name="emailId" [(ngModel)]="form.data.emailId" class="form-control" 
-               (ngModelChange)="form.data.emailId = $event.trim()"     maxlength="500"  
-               placeholder="{{'emailId' | translate}}">
-
-            </div>
-            <span *ngIf="form.inputerror.emailId != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.emailId | translate}}</span>
-          </div>
 
 
 
           <!-- string=>type="text" (ngModelChange)="form.data.stringdata = $event.trim()" / appNoNumbers  -->
           <div class="form-group">
-            <label><b>{{'nameFiled' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Name' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
               </div>
 
-              <input type="text" name="names" [(ngModel)]="form.data.names" class="form-control" 
-               (ngModelChange)="form.data.names = $event.trim()"  appNoNumbers    maxlength="500"  
-               placeholder="{{'names' | translate}}">
+              <input type="text" name="name" [(ngModel)]="form.data.name" class="form-control" 
+               (ngModelChange)="form.data.name = $event.trim()"  appNoNumbers    maxlength="50"  
+               placeholder="{{'name' | translate}}">
 
             </div>
-            <span *ngIf="form.inputerror.names != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.names | translate}}</span>
+            <span *ngIf="form.inputerror.name != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.name | translate}}</span>
           </div>
 
 
@@ -139,7 +123,8 @@
               </div>
               
               <textarea type="text"  id="addresstext" cols="20"    title="address" rows="4" name="addresstext" 
-              [(ngModel)]="form.data.address" class="form-control"  (ngModelChange)="form.data.address = $event.trim()"
+              [(ngModel)]="form.data.address" class="form-control" 
+               (ngModelChange)="form.data.address = $event.trim()" maxlength="100"
                 placeholder="{{'address' | translate}}"> </textarea>
             </div>
 
@@ -150,7 +135,7 @@
 
    <!-- phoneNo.=> type="number"/  appMaxLengthNumber="10"  /-->
           <div class="form-group">
-            <label><b>{{'phone Number' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Phone ' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">
@@ -164,64 +149,8 @@
               {{form.inputerror.phoneNo| translate}}</span>
           </div>
 
-          <!-- doubleValue filed -->
-          <div class="form-group">
-            <label><b>{{'doubleValue ' | translate }}</b><span class="required-field"></span></label>
-
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
-              </div>
-
-              <input type="number" name="doubleValue" [(ngModel)]="form.data.doubleValue" class="form-control" 
-                    placeholder="{{'doubleValue  ' | translate}}">
-            </div>
-            <span *ngIf="form.inputerror.doubleValue != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.doubleValue| translate}}</span>
-          </div>
-
       
 
-
-<!-- LongFiled=> type="number"   -->
-          <div class="form-group" class="addrestext">
-
-            <label><b>{{'salary' | translate }}</b><span class="required-field"></span></label>
-
-            <div class="input-group">
-               <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-
-         <input type="number" name="salary" [(ngModel)]="form.data.salary" class="form-control" 
-         placeholder="{{'salary' | translate}}"  />
-             
-            </div>
-            <span *ngIf="form.inputerror.salary != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.salary | translate}}</span>
-          </div>
-          
-
-
-     
-
-
-<!-- date Filed=> type="date" -->
-          <div class="form-group">
-            <label><b>{{'clientDate' | translate }}</b><span class="required-field"></span></label>
-
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-table grey-text"></i></div>
-              </div>
-
-              <input type="date" [value]="form.data.clientDate |date:'yyyy-MM-dd'" 
-               (input)="form.data.clientDate=parseDate($event.target.value)"  class="form-control form-control-sm" required />
-            </div>
-
-            <span *ngIf="form.inputerror.clientDate != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.clientDate | translate}}</span>
-          </div>
 
 
           <div class="row pt-2 pb-3">

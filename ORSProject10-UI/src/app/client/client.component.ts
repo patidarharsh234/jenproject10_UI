@@ -64,22 +64,14 @@ export class ClientComponent extends BaseCtl{
 
   populateForm(form, data) {
     form.id = data.id;
-    form.names=data.names; 
+    form.name=data.name; 
    
      form.address=data.address; 
 
-     form.doubleValue=data.doubleValue; 
-
-     form.salary=data.salary;
-
-     form.clientDate = data.clientDate;
-
      form.phoneNo=data.phoneNo;
 
-     form.emailId=data.emailId;
-
      form.priorityId = data.priorityId;
-     form.priority=data.priority;
+   
      
     
   }

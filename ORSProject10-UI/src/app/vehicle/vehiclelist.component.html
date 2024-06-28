@@ -36,12 +36,14 @@ background-size: cover;width:auto;
 
         <div class="col-sm-2">
           <input type="number" class="form-control" [(ngModel)]="form.searchParams.insuranceAmount" 
+          appMaxLengthNumber="50"
             placeholder="{{'Search insuranceAmount ' | translate}}">
 
         </div>
 
         <div class="col-sm-2">
-          <input type="text" class="form-control" [(ngModel)]="form.searchParams.number" appNoNumbers
+          <input type="text" class="form-control" [(ngModel)]="form.searchParams.number" 
+             (ngModelChange)="form.searchParams.name = $event.trim()" maxlength="50"
             placeholder="{{'Search number ' | translate}}">
 
         </div>
@@ -115,9 +117,9 @@ background-size: cover;width:auto;
                    name="list_name" value="h1" />
                 {{'select' | translate}}</th>
                 <th>{{'S.No' | translate}}</th>
-                <th>{{'number' | translate}}</th>
-                <th>{{'purchaseDate ' | translate}}</th>
-                <th>{{'insuranceAmount ' | translate}}</th>
+                <th>{{'Number' | translate}}</th>
+                <th>{{'PurchaseDate ' | translate}}</th>
+                <th>{{'InsuranceAmount ' | translate}}</th>
                 <th>{{'Colour ' | translate}}</th>
                 <th>{{'Edit' | translate}}</th>
               </tr>

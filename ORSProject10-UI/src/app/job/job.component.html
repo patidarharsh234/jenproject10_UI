@@ -74,7 +74,7 @@
               </div>
               <select class="form-control" name="statusId" [(ngModel)]="form.data.statusId" aria-label="ngSelected">
                 <option [ngValue]="" value="undefined">{{'Select status' | translate}}</option>
-                <option *ngFor="let obj of form.preload.StatusRoleList" [value]="obj.key">{{obj.value}}</option>
+                <option *ngFor="let obj of form.preload.StatusList" [value]="obj.key">{{obj.value}}</option>
               </select>
             </div>
             <span *ngIf="form.inputerror.statusId != null" class="alertRedColor" style="color: red;">{{form.inputerror.statusId | translate}}</span>
@@ -88,25 +88,29 @@
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
               </div>
-              <input type="text" name="title" [(ngModel)]="form.data.title" class="form-control" placeholder="{{'Title' | translate}}">
+              <input type="text" name="title" [(ngModel)]="form.data.title" class="form-control"
+              (ngModelChange)="form.data.title = $event.trim()"  appNoNumbers    maxlength="50"  
+               placeholder="{{'Title' | translate}}">
             </div>
             <span *ngIf="form.inputerror.title != null" class="alertRedColor" style="color: red;">{{form.inputerror.title | translate}}</span>
           </div>
 
 
-
-          <div class="form-group" class="addrestext">
+          <div class="form-group addrestext">
             <label><b>{{'Experience' | translate }}</b><span class="required-field"></span></label>
             <div class="input-group">
-              
               <div class="input-group-prepend">
-                <div class="input-group-text"></div>
+                <div class="input-group-text">
+                  <i class="fas fa-briefcase"></i> 
+                </div>
               </div>
-
-         <input name="experience" [(ngModel)]="form.data.experience" class="form-control" placeholder="{{'Experience' | translate}}"  />
-             
+              <input type="text" name="experience" [(ngModel)]="form.data.experience" class="form-control" 
+                     (ngModelChange)="form.data.experience = $event.trim()" maxlength="50"  
+                     placeholder="{{'Experience' | translate}}" />
             </div>
-            <span *ngIf="form.inputerror.experience != null" class="alertRedColor" style="color: red;">{{form.inputerror.experience | translate}}</span>
+            <span *ngIf="form.inputerror.experience != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.experience | translate}}
+            </span>
           </div>
           
 

@@ -1,0 +1,183 @@
+
+<app-navbar></app-navbar>
+<style>
+#nnn{
+  background: none;
+  broute: none;
+}
+
+</style> 
+
+<div class="content-wrapper"
+style="
+background: url(assets/files/26.jpg) no-repeat center center;
+background-attachment: fixed;
+background-size: cover;width:auto;
+  height: 105vh;">
+
+  <div class="container-fluid">
+
+    <div class="panel panel-primary">
+
+      <div class="panel-heading" style="height: 50px;">
+        <div class="text-center">
+
+          <h1 class="text-primary font-weight-bold">{{'route List' | translate }}</h1>
+
+
+        </div>
+      </div>
+
+
+      <!-- search Filed -->
+      <div class="row p-1">
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-2">
+          <input type="number" class="form-control" [(ngModel)]="form.searchParams.allowdSpeed" 
+          appMaxLengthNumber="5"
+            placeholder="{{'Search allowdSpeed ' | translate}}">
+
+        </div>
+
+        <div class="col-sm-2">
+          <input type="text" class="form-control" [(ngModel)]="form.searchParams.name"
+          appNoNumbers appMaxLengthNumber="50" (ngModelChange)="form.searchParams.name = $event.trim()"
+            placeholder="{{'Search name ' | translate}}">
+
+        </div>
+
+        <div class="col-sm-2">
+          <input type="date" class="form-control" [(ngModel)]="form.searchParams.startdate" 
+            placeholder="{{'Search startdate ' | translate}}">
+
+        </div>
+        
+        
+        <div class="col-sm-2">
+
+          <select class="form-control" name="vehicleId" [(ngModel)]="form.searchParams.vehicleId" aria-label="ngSelected">
+            <option [ngValue]="" value="undefined">{{'Select VehicleId' | translate}}</option>
+            <option *ngFor="let obj of form.preload.VehicleIDList" [value]="obj.key">{{obj.value}}</option>
+          </select>
+
+        </div>
+
+
+
+
+   <!-- Search Button -->
+        <div class="col-sm-1 ml-3">
+          <button (click)="submit()" type="button" class="btn btn-primary">
+            {{'Search' | translate }}</button>
+          </div>
+          &nbsp;&nbsp;&nbsp;
+
+        
+    <!-- delete Button -->
+        <div class="col-sm-1">
+          <button (click)="deleteMany()" class="btn btn-danger">
+            {{'Delete'| translate}}</button>
+        </div>
+      </div>
+
+      
+      
+      <!-- Add route button -->
+       <div class="col-lg-2 ml-4">
+        <button (click)="forward('/route')" type="button" class="btn btn-success">{{'Add route' | translate}}
+        </button>
+      </div>
+
+
+      <div *ngIf="form.error" class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message | translate}}
+      </div>
+      <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message | translate}}
+      </div>
+
+
+      <div class="p-1">
+
+
+        <div class="table-responsive">
+
+          <table class="table table-brouteed table-hover font-weight-bold table-info text-dark">
+            <thead class="thead-dark text-uppercase ">
+              <tr align="center">
+                <th><input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)"
+                   name="list_name" value="h1" />
+                {{'select' | translate}}</th>
+                <th>{{'S.No' | translate}}</th>
+                <th>{{'name' | translate}}</th>
+                <th>{{'startdate ' | translate}}</th>
+                <th>{{'allowdSpeed ' | translate}}</th>
+                <th>{{'vehicleID' | translate}}</th>
+                <th>{{'Edit' | translate}}</th>
+
+              </tr>
+
+            </thead>
+
+            
+            <tbody>
+              <tr *ngFor="let m of form.list; let i = index" align="center">
+                <td> <input type="checkbox" #checkboxes (change)="checklistUpdate()"  id="{{m.id}}" name="list_name" />
+                </td>
+                <td> {{(form.pageNo*5)+i+1}} </td>
+                <td> {{ m.name }} </td>
+                <td> {{ m.startdate | date : 'yyyy-MM-dd'}} </td>
+                <td> {{ m.allowdSpeed +" Km/h" }} </td>
+                <td> {{ m.vehicleID}} </td>
+          
+                
+                <td>
+                  <!--  edit button-->
+                  <button  class="fa fa-edit text-primary " id="nnn"  (click)="forward( '/route/' +  m.id)" style="
+                  cursor: pointer;">edit</button>
+                </td>
+
+                
+              </tr>
+            </tbody>
+
+          </table>
+
+
+          
+          <table style="width: 100%;">
+            <tr>
+              <td style="width: 50%;">
+                
+          <button (click)="previous()" [disabled]="form.pageNo == 0" class="btn btn-info"> {{'Previous' | translate
+            }} </button></td>
+
+            <td *ngIf="!form.list.length==0" style="width: 50%;" > <button (click)="refresh()" class="btn btn-info"> {{'Rreset' | translate }} </button></td>
+           
+            <td *ngIf="form.list.length==0" style="width: 50%;"><button class="btn btn-warning mr-1" (click)="refresh()">{{'Back' | translate}}</button></td>
+
+
+        
+            <td style="width: 50%;"><button  (click)="next()" [disabled]="nextList==0 ||form.list.length< 5" type="button" class="btn btn-info"> {{'Next' |
+              translate }}</button></td>
+            </tr>
+            </table>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</div>
+<app-footer></app-footer>
+
+
+
+
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseListCtl } from '../base-list.component';
 import { ServiceLocatorService } from '../service-locator.service';
 import { ActivatedRoute } from '@angular/router';
+import { BaseListCtl } from '../base-list.component';
 
 @Component({
   selector: 'app-productdetailslist',
@@ -11,18 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductdetailslistComponent extends BaseListCtl {
 
   constructor(public locator:ServiceLocatorService,public route:ActivatedRoute) {
-    super(locator.endpoints.ProductDetails,locator,route);
+    super(locator.endpoints.productdetails  ,locator,route);
    }
-
-
-
-
-   //number-->type=number
-  //mobileNo-->type=number /appmaxlength 10
-  //name--->appNonumber
-  //Email-->bana he
-  //date of burth
-  //address
-
 
 }

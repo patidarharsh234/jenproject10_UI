@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class ShoppingcartComponent extends BaseCtl {
 
   constructor(public locator:ServiceLocatorService,public route:ActivatedRoute,public http:HttpClient) {
-    super(locator.endpoints.ORDER,locator,route);
+    super(locator.endpoints.Shoppingcart,locator,route);
    }
 
 
@@ -60,22 +60,25 @@ export class ShoppingcartComponent extends BaseCtl {
       console.log('FORM', _self.form);
     });
   }
+//Usecase #2: ShoppingCart
+//Fields:
 
+//2. name,
+//3. product (Preload)
+//4. date,
+//5. quantity
 
   populateForm(form, data) {
     form.id = data.id;
    
-     form .uniqueId=data.uniqueId; 
-     form.addres=data.addres;
+     form .name=data.name;
 
-     form.dateFiled = data.dateFiled;
+     form.dates = data.dates;
 
-     form.longValue=data.longValue;
-
-     form.mobileNo=data.mobileNo;
+     form.quantity=data.quantity;
 
      form.productId = data.productId;
-     form.product=data.product;
+    
      
     
   }

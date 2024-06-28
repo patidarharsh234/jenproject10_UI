@@ -26,5 +26,15 @@ export class EndpointServiceService {
   public ProductDetails = this.SERVER_URL+ "/productDetails";
   public client = this.SERVER_URL+ "/Client";
   public vehicle = this.SERVER_URL+ "/vehicle";
- 
+  public Owner = this.SERVER_URL+ "/Owner";
+  public VehicleTracking = this.SERVER_URL+ "/VehicleTracking";
+  public Route = this.SERVER_URL+ "/Route";
+  public patient = this.SERVER_URL+ "/patient";
+  public prescription = this.SERVER_URL+ "/prescription";
+  public issue = this.SERVER_URL+ "/issue"; 
+  public salary = this.SERVER_URL+ "/salary"; 
+  public productdetails = this.SERVER_URL+ "/productdetails"; 
+  public Shoppingcart = this.SERVER_URL+ "/Shoppingcart"; 
+  
+  
 }

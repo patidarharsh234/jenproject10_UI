@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ShoppingcartlistComponent extends BaseListCtl {
 
   constructor(public locator:ServiceLocatorService,public route:ActivatedRoute) {
-    super(locator.endpoints.ORDER  ,locator,route);
+    super(locator.endpoints.Shoppingcart  ,locator,route);
    }
 
   //  trimName() {

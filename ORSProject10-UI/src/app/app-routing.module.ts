@@ -39,14 +39,37 @@ import { JasperReportComponent } from './jasper-report/jasper-report.component';
 
 import { JobComponent } from './job/job.component';
 import { JoblistComponent } from './job/joblist.component';
-import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
-import { ShoppingcartlistComponent } from './shoppingcart/shoppingcartlist.component';
-import { ProductdetailsComponent } from './productdetails/productdetails.component';
-import { ProductdetailslistComponent } from './productdetails/productdetailslist.component';
+
 import { ClientComponent } from './client/client.component';
 import { ClientlistComponent } from './client/clientlist.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
+
+import { OwnerComponent } from './owner/owner.component';
+
+
+import { RouteComponent } from './route/route.component';
+
+import { PatientComponent } from './patient/patient.component';
+import { PatientlistComponent } from './patient/patientlist.component';
+import { RoutelistComponent } from './Route/routelist.component';
+import { OwnerlistComponent } from './Owner/ownerlist.component';
 import { VehiclelistComponent } from './Vehicle/vehiclelist.component';
+import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { IssueComponent } from './issue/issue.component';
+import { IssuelistComponent } from './issue/issuelist.component';
+import { SalaryComponent } from './salary/salary.component';
+import { SalarylistComponent } from './salary/salarylist.component';
+import { ProductdetailslistComponent } from './productdetails/productdetailslist.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { OrderComponent } from './order/order.component';
+import { OrderlistComponent } from './order/orderlist.component';
+import { VehicleTrackingComponent } from './vehicle-tracking/vehicle-tracking.component';
+import { VehicleTrackinglistComponent } from './VehicleTracking/vehicle-trackinglist.component';
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { ShoppingcartlistComponent } from './shoppingcart/shoppingcartlist.component';
+
+
 
 
 const routes: Routes = [
@@ -271,27 +294,15 @@ const routes: Routes = [
     },
    {
     path: 'order',
-    component: ShoppingcartComponent
+    component: OrderComponent
 },
 {
     path: 'order/:id',
-    component: ShoppingcartComponent
+    component: OrderComponent
 },
 {
     path: 'orderlist',
-    component: ShoppingcartlistComponent
-},
-{
-    path: 'productdetails',
-    component: ProductdetailsComponent
-},
-{
-    path: 'productdetails/:id',
-    component: ProductdetailsComponent
-},
-{
-    path: 'productdetailslist',
-    component: ProductdetailslistComponent
+    component: OrderlistComponent
 },
 {
     path: 'client',
@@ -317,6 +328,131 @@ const routes: Routes = [
     path: 'vehiclelist',
     component: VehiclelistComponent
 },
+ {
+    path: 'owner',
+    component: OwnerComponent
+},
+{
+    path: 'owner/:id',
+    component: OwnerComponent
+},
+{
+    path: 'ownerlist',
+    component: OwnerlistComponent
+},
+{
+    path: 'patient',
+    component: PatientComponent
+},
+{
+    path: 'patient/:id',
+    component: PatientComponent
+},
+{
+    path: 'patientlist',
+    component: PatientlistComponent
+},
+{
+    path: 'route',
+    component: RouteComponent
+},
+{
+    path: 'route/:id',
+    component: RouteComponent
+},
+{
+    path: 'routelist',
+    component: RoutelistComponent
+},
+
+{
+    path: 'prescription',
+    component: PrescriptionComponent
+},
+{
+    path: 'prescription/:id',
+    component: PrescriptionComponent
+},
+{
+    path: 'prescriptionlist',
+    component: PrescriptionlistComponent
+}
+,
+{
+    path: 'issue',
+    component: IssueComponent
+},
+{
+    path: 'issue/:id',
+    component: IssueComponent
+},
+{
+    path: 'issuelist',
+    component: IssuelistComponent
+},
+{
+    path: 'salary',
+    component: SalaryComponent
+},
+{
+    path: 'salary/:id',
+    component: SalaryComponent
+},
+{
+    path: 'salarylist',
+    component: SalarylistComponent
+}
+,
+{
+    path: 'productdetails',
+    component: ProductdetailsComponent
+},
+{
+    path: 'productdetails/:id',
+    component: ProductdetailsComponent
+},
+{
+    path: 'productdetailslist',
+    component: ProductdetailslistComponent
+},
+{
+    path: 'job',
+    component: JobComponent
+},
+{
+    path: 'job/:id',
+    component: JobComponent
+},
+{
+    path: 'joblist',
+    component: JoblistComponent
+}
+,
+{
+    path: 'vehicletracking',
+    component: VehicleTrackingComponent
+},
+{
+    path: 'vehicletracking/:id',
+    component: VehicleTrackingComponent
+},
+{
+    path: 'vehicletrackinglist',
+    component: VehicleTrackinglistComponent
+},
+{
+    path: 'shoppingcart',
+    component: ShoppingcartComponent
+},
+{
+    path: 'shoppingcart/:id',
+    component: ShoppingcartComponent
+},
+{
+    path: 'shoppingcartlist',
+    component: ShoppingcartlistComponent
+}
+
 
  
 ];

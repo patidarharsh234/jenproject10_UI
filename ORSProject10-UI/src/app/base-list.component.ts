@@ -30,11 +30,11 @@ export class BaseListCtl extends BaseCtl {
   submit() {
     // Validate email format using regular expression
        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+       const speed=/^(120(\\\\.0{0,2}|\\\\.75)?|([1-9][0-9]?(\\\\.\\\\d{1,2})?|1[01][0-9](\\\\.\\\\d{1,2})?))$/;
        if (this.form.searchParams.emailId && !emailRegex.test(this.form.searchParams.emailId)) {
-         this.form.emailInvalid = true; // Set flag for invalid email
-         return; // Exit function if email is invalid
+         this.form.emailInvalid = true;
+         return; 
        }
-    // Clear previous error flag if email is valid
        this.form.emailInvalid = false;
 
        //PHONE NO REGEX PATTERN
@@ -46,7 +46,12 @@ export class BaseListCtl extends BaseCtl {
      
       //  // Clear previous error flag if phone number is valid
       //  this.form.phoneInvalid = false; 
-
+      if (this.form.searchParams.speed && !speed.test(this.form.searchParams.speed)) {
+        this.form.speed = true;
+        return; 
+      }
+      this.form.speed = false;
+      
 
     this.isMasterSel=false;
     this.form.pageNo=0;

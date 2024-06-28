@@ -61,12 +61,28 @@ import { MaxLengthNumberDirective } from './max-length-number.directive';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { ShoppingcartlistComponent } from './shoppingcart/shoppingcartlist.component';
 import { NoNumbersDirectiveDirective } from './no-numbers-directive.directive';
-import { ProductdetailsComponent } from './productdetails/productdetails.component';
-import { ProductdetailslistComponent } from './productdetails/productdetailslist.component';
 import { ClientComponent } from './client/client.component';
 import { ClientlistComponent } from './client/clientlist.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehiclelistComponent } from './Vehicle/vehiclelist.component';
+import { OwnerComponent } from './owner/owner.component';
+import { OwnerlistComponent } from './Owner/ownerlist.component';
+import { VehicleTrackingComponent } from './vehicle-tracking/vehicle-tracking.component';
+import { VehicleTrackinglistComponent } from './VehicleTracking/vehicle-trackinglist.component';
+import { RouteComponent } from './route/route.component';
+import { RoutelistComponent } from './Route/routelist.component';
+import { PatientComponent } from './patient/patient.component';
+import { PatientlistComponent } from './patient/patientlist.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
+import { IssueComponent } from './issue/issue.component';
+import { IssuelistComponent } from './issue/issuelist.component';
+import { SalaryComponent } from './salary/salary.component';
+import { SalarylistComponent } from './salary/salarylist.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { ProductdetailslistComponent } from './productdetails/productdetailslist.component';
+import { OrderComponent } from './order/order.component';
+import { OrderlistComponent } from './order/orderlist.component';
 
 
 
@@ -124,18 +140,29 @@ export function myHttpLoader(http: HttpClient) {
     ShoppingcartComponent,
     ShoppingcartlistComponent,
     NoNumbersDirectiveDirective,
-    ProductdetailsComponent,
-    ProductdetailslistComponent,
     ClientComponent,
     ClientlistComponent,
     VehicleComponent,
     VehiclelistComponent,
- 
-
-    
-    
-
-  ],
+    OwnerComponent,
+    OwnerlistComponent,
+    VehicleTrackingComponent,
+    VehicleTrackinglistComponent,
+    RouteComponent,
+    RoutelistComponent,
+    PatientComponent,
+    PatientlistComponent,
+    PrescriptionComponent,
+    PrescriptionlistComponent,
+    IssueComponent,
+    IssuelistComponent,
+    SalaryComponent,
+    SalarylistComponent,
+  ProductdetailsComponent,
+  ProductdetailslistComponent,
+  OrderComponent,
+  OrderlistComponent,
+ ],
   imports: [
     BrowserModule,
     TranslateModule.forRoot({

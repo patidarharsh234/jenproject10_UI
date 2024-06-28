@@ -27,7 +27,7 @@
 
   .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    bshoppingcart-radius: 8px;
   }
 
   .btn {
@@ -48,8 +48,8 @@
     <div class="card">
       <div class="card-body input-group-addon grad">
         <form name="userForm">
-          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold text-center">{{'Add order' | translate}}</h2>
-          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold text-center">{{'Update order' | translate}}</h2>
+          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold text-center">{{'Add shoppingcart' | translate}}</h2>
+          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold text-center">{{'Update shoppingcart ' | translate}}</h2>
 
 
 
@@ -63,12 +63,12 @@
             {{form.message | translate}}
           </div>
 
+        
 
-
-
+  <!-- preload Filed -->
           <div class="form-group">
 
-            <label><b>{{'product' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Product' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">
@@ -77,7 +77,7 @@
 
               <select class="form-control" name="productId" [(ngModel)]="form.data.productId" aria-label="ngSelected">
                 <option [ngValue]="" value="undefined">{{'Select product' | translate}}</option>
-                <option *ngFor="let obj of form.preload.productRoleList" [value]="obj.key">{{obj.value}}</option>
+                <option *ngFor="let obj of form.preload.productList" [value]="obj.key">{{obj.value}}</option>
               </select>
 
             </div>
@@ -88,63 +88,29 @@
           </div>
 
 
-           <!--  Unique Filed=> (ngModelChange)="form.data.uniqueId = $event.trim()" 
-             string=>type="text" (ngModelChange)="form.data.uniqueId = $event.trim()" / appNoNumbers -->
+       
           <div class="form-group">
-            <label><b>{{'uniqueId' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'nameflied' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
               </div>
 
-              <input type="text" name="uniqueId" [(ngModel)]="form.data.uniqueId" class="form-control" 
-               (ngModelChange)="form.data.uniqueId = $event.trim()"     maxlength="500"  
-               placeholder="{{'uniqueId' | translate}}">
+              <input type="text" name="nameflied" [(ngModel)]="form.data.nameflied" class="form-control" 
+               (ngModelChange)="form.data.nameflied = $event.trim()"     maxlength="50"   
+               placeholder="{{'nameflied' | translate}}">
 
             </div>
-            <span *ngIf="form.inputerror.uniqueId != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.uniqueId | translate}}</span>
+            <span *ngIf="form.inputerror.nameflied != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.nameflied | translate}}</span>
           </div>
 
 
 
-             <!-- <textarea type="text"  /id="addrestext" cols="20"    title="address" rows="4" /
-                (ngModelChange)="form.data.addres = $event.trim()-->
-          <div class="form-group">
-            <label><b>{{'Addres ' | translate }}</b><span class="required-field"></span></label>
-
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
-              </div>
-              
-              <textarea type="text"  id="addrestext" cols="20"    title="addres" rows="4" name="addrestext" 
-              [(ngModel)]="form.data.addres" class="form-control"  (ngModelChange)="form.data.addres = $event.trim()"
-                placeholder="{{'addres' | translate}}"> </textarea>
-            </div>
-
-            <span *ngIf="form.inputerror.addres != null" class="alertRedColor" style="color: red;">{{form.inputerror.addres | translate}}</span>
-         
-          </div>
 
 
-   <!-- MobileNo.=> type="number"/  appMaxLengthNumber="10"  /-->
-          <div class="form-group">
-            <label><b>{{'Mobile Number' | translate }}</b><span class="required-field"></span></label>
-
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-user-circle grey-text"></i></div>
-              </div>
-
-              <input type="number" name="mobileNo" [(ngModel)]="form.data.mobileNo" class="form-control" 
-                 appMaxLengthNumber="10"      placeholder="{{'MobileNo' | translate}}">
-            </div>
-            <span *ngIf="form.inputerror.mobileNo != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.mobileNo | translate}}</span>
-          </div>
-
+ 
 
       
 
@@ -152,19 +118,20 @@
 <!-- LongFiled=> type="number"   -->
           <div class="form-group" class="addrestext">
 
-            <label><b>{{'longValue' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Quantity' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
                <div class="input-group-prepend">
                 <div class="input-group-text"></div>
               </div>
 
-         <input type="number" name="longValue" [(ngModel)]="form.data.longValue" class="form-control" 
-         placeholder="{{'longValue' | translate}}"  />
+         <input type="number" name="quantity" [(ngModel)]="form.data.quantity" class="form-control" 
+         appMaxLengthNumber="50"
+         placeholder="{{'quantity' | translate}}"  />
              
             </div>
-            <span *ngIf="form.inputerror.longValue != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.longValue | translate}}</span>
+            <span *ngIf="form.inputerror.quantity != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.quantity | translate}}</span>
           </div>
           
 
@@ -174,19 +141,19 @@
 
 <!-- date Filed=> type="date" -->
           <div class="form-group">
-            <label><b>{{'dateFiled' | translate }}</b><span class="required-field"></span></label>
+            <label><b>{{'Dates' | translate }}</b><span class="required-field"></span></label>
 
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-table grey-text"></i></div>
               </div>
 
-              <input type="date" [value]="form.data.dateFiled |date:'yyyy-MM-dd'" 
-               (input)="form.data.dateFiled=parseDate($event.target.value)"  class="form-control form-control-sm" required />
+              <input type="date" [value]="form.data.dates |date:'yyyy-MM-dd'" 
+               (input)="form.data.dates=parseDate($event.target.value)"  class="form-control form-control-sm" required />
             </div>
 
-            <span *ngIf="form.inputerror.dateFiled != null" class="alertRedColor" style="color: red;">
-              {{form.inputerror.dateFiled | translate}}</span>
+            <span *ngIf="form.inputerror.dates != null" class="alertRedColor" style="color: red;">
+              {{form.inputerror.dates | translate}}</span>
           </div>
 
 
@@ -197,8 +164,8 @@
               <button *ngIf="form.data.id>0" (click)="onUpload()" class="btn btn-success">{{'Update' | translate}}</button>
             </div>
             <div class="col-md-3 pt-2">
-              <a class="btn btn-warning" [routerLink]="['/orderlist']" style="text-decoration: none; color: white;">
-                {{'order List' | translate}}</a>
+              <a class="btn btn-warning" [routerLink]="['/shoppingcartlist']" style="text-decoration: none; color: white;">
+                {{'shoppingcart List' | translate}}</a>
             </div>
           </div>
         </form>

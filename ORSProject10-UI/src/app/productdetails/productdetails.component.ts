@@ -9,10 +9,12 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './productdetails.component.html',
   styleUrls: ['./productdetails.component.css']
 })
-export class ProductdetailsComponent extends BaseCtl{
+export class ProductdetailsComponent extends BaseCtl {
+
+
 
   constructor(public locator:ServiceLocatorService,public route:ActivatedRoute,public http:HttpClient) {
-    super(locator.endpoints.ProductDetails,locator,route);
+    super(locator.endpoints.productdetails,locator,route);
    }
 
 
@@ -62,19 +64,17 @@ export class ProductdetailsComponent extends BaseCtl{
   }
 
 
+
+
   populateForm(form, data) {
     form.id = data.id;
-   
-     form .name=data.name; 
-     form.description=data.description;
 
-     form.price = data.price;
-
-     form.dateOfPurchase=data.dateOfPurchase;
-
+    form.name=data.name; 
+    form.description=data.description; 
+     form.price=data.price; 
 
      form.categoryId = data.categoryId;
-     form.category=data.category;
+     form.dateOfPurchase=data.dateOfPurchase;
      
     
   }
@@ -86,6 +86,5 @@ export class ProductdetailsComponent extends BaseCtl{
     }
     return null;
   }
-
 
 }

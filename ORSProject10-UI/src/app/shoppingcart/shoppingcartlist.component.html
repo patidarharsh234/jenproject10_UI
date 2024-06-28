@@ -4,7 +4,7 @@
 <style>
 #nnn{
   background: none;
-  border: none;
+  bshoppingcart: none;
 }
 
 </style> 
@@ -23,7 +23,7 @@ background-size: cover;width:auto;
       <div class="panel-heading" style="height: 50px;">
         <div class="text-center">
 
-          <h1 class="text-primary font-weight-bold">{{'order List' | translate }}</h1>
+          <h1 class="text-primary font-weight-bold">{{'ShoppingCart List' | translate }}</h1>
 
 
         </div>
@@ -36,22 +36,26 @@ background-size: cover;width:auto;
         <div class="col-sm-1"></div>
 
         <div class="col-sm-2">
-          <input type="dateFiled" class="form-control" [(ngModel)]="form.searchParams.dateFiled"
-            placeholder="{{'Search dateFiled ' | translate}}">
+          <input type="date" class="form-control" [(ngModel)]="form.searchParams.dates"
+            placeholder="{{'Search dates ' | translate}}">
 
         </div>
 
 
         <div class="col-sm-2">
-          <input type="number" class="form-control" [(ngModel)]="form.searchParams.longValue"
-            placeholder="{{'Search longValue ' | translate}}">
+          <input type="number" class="form-control" [(ngModel)]="form.searchParams.quantity"
+          appMaxLengthNumber="50"
+            placeholder="{{'Search quantity ' | translate}}">
 
         </div>
 
+
+        
+
         <div class="col-sm-2">
-          <input type="text" class="form-control" [(ngModel)]="form.searchParams.uniqueId"
-           (ngModelChange)="form.data.uniqueId = $event.trim()"  appNoNumbers 
-            placeholder="{{'Search uniqueId ' | translate}}">
+          <input type="text" class="form-control" [(ngModel)]="form.searchParams.name"
+           (ngModelChange)="form.data.name = $event.trim()"  appMaxLengthNumber="50" 
+            placeholder="{{'Search name ' | translate}}">
 
         </div>
         
@@ -59,8 +63,8 @@ background-size: cover;width:auto;
         <div class="col-sm-2">
 
           <select class="form-control" name="productId" [(ngModel)]="form.searchParams.productId" aria-label="ngSelected">
-            <option [ngValue]="" value="undefined">{{' Select status ' | translate }}</option>
-            <option *ngFor="let obj of form.preload.productRoleList" [value]="obj.key">{{obj.value}}</option>
+            <option [ngValue]="" value="undefined">{{' Select product ' | translate }}</option>
+            <option *ngFor="let obj of form.preload.productList" [value]="obj.key">{{obj.value}}</option>
           </select>
         </div>
 
@@ -76,9 +80,9 @@ background-size: cover;width:auto;
 
 
 
-   <!-- Add order button -->
+   <!-- Add shoppingcart button -->
         <div class="col-lg-2 ml-4">
-          <button (click)="forward('/order')" type="button" class="btn btn-success">{{'Add order' | translate}}
+          <button (click)="forward('/shoppingcart')" type="button" class="btn btn-success">{{'Add shoppingcart' | translate}}
           </button>
         </div>
         
@@ -103,7 +107,7 @@ background-size: cover;width:auto;
 
       <div class="p-1">
 
-
+    
         <div class="table-responsive">
 
           <table class="table table-bordered table-hover font-weight-bold table-info text-dark">
@@ -113,12 +117,10 @@ background-size: cover;width:auto;
                    name="list_name" value="h1" />
                 {{'select' | translate}}</th>
                 <th>{{'S.No' | translate}}</th>
-                <th>{{'Unique Id' | translate}}</th>
-                <th>{{'Date Filed ' | translate}}</th>
-                <th>{{'Long Value ' | translate}}</th>
-                <th>{{'product ' | translate}}</th>
-                <th>{{'Mobile Number'}}</th>
-                <th>{{'Addres'}}</th>
+                <th>{{'name' | translate}}</th>
+                <th>{{'dates ' | translate}}</th>
+                <th>{{'quantity  ' | translate}}</th>
+                 <th>{{'product ' | translate}}</th>
                 <th>{{'Edit' | translate}}</th>
               </tr>
 
@@ -131,16 +133,14 @@ background-size: cover;width:auto;
                 </td>
                 <td> {{(form.pageNo*5)+i+1}} </td>
 
-                <td> {{ m.uniqueId }} </td>
-                <td> {{ m.dateFiled | date : 'yyyy-MM-dd'}} </td>
-                <td> {{ m.longValue }} </td>
+                <td> {{ m.name }} </td>
+                <td> {{ m.dates | date : 'yyyy-MM-dd'}} </td>
+                <td> {{ m.quantity }} </td>
                 <td> {{ m.product }} </td>
-                <td>{{ m.mobileNo }}</td>
-                <td>{{ m.addres }}</td>
                 
                 <td>
                   <!--  edit button-->
-                  <button  class="fa fa-edit text-primary " id="nnn"  (click)="forward( '/order/' +  m.id)" style="
+                  <button  class="fa fa-edit text-primary " id="nnn"  (click)="forward( '/shoppingcart/' +  m.id)" style="
                   cursor: pointer;">edit</button>
                 </td>
 
